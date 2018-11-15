@@ -8,20 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		6E9A5B1121921CFF00EF4348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A5B1021921CFF00EF4348 /* AppDelegate.swift */; };
-		6E9A5B1321921CFF00EF4348 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A5B1221921CFF00EF4348 /* ViewController.swift */; };
 		6E9A5B1621921CFF00EF4348 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E9A5B1421921CFF00EF4348 /* Main.storyboard */; };
 		6E9A5B1821921D0000EF4348 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E9A5B1721921D0000EF4348 /* Assets.xcassets */; };
 		6E9A5B1B21921D0000EF4348 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E9A5B1921921D0000EF4348 /* LaunchScreen.storyboard */; };
+		6EBA2CDC219DD0E80069051B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CDB219DD0E80069051B /* HomeViewController.swift */; };
+		6EBA2CDF219DD11E0069051B /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CDE219DD11E0069051B /* MyEventsTableViewController.swift */; };
+		6EBA2CE1219DD1370069051B /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CE0219DD1370069051B /* AddEventViewController.swift */; };
+		6EBA2CE3219DD1670069051B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CE2219DD1670069051B /* WebViewController.swift */; };
+		6EBA2CE5219DD1930069051B /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CE4219DD1930069051B /* EventDetailsViewController.swift */; };
+		6EBA2CE9219DD1D20069051B /* LodingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CE8219DD1D20069051B /* LodingTableViewController.swift */; };
+		6EBA2CEB219DD1E50069051B /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CEA219DD1E50069051B /* NewsTableViewController.swift */; };
+		6EBA2CED219DD1F60069051B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CEC219DD1F60069051B /* MapViewController.swift */; };
+		6EBA2CEF219DD2100069051B /* SearchEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CEE219DD2100069051B /* SearchEventsViewController.swift */; };
+		6EBA2CF1219DD2250069051B /* SearchedEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CF0219DD2250069051B /* SearchedEventsTableViewController.swift */; };
+		6EBA2CF3219DD23F0069051B /* SearchedEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CF2219DD23F0069051B /* SearchedEventTableViewCell.swift */; };
+		6EBA2CF5219DD2B70069051B /* SearchedEventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CF4219DD2B70069051B /* SearchedEventDetailsViewController.swift */; };
+		6EBA2CF7219DD2C60069051B /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CF6219DD2C60069051B /* TicketScanViewController.swift */; };
+		6EBA2CF9219DD2D40069051B /* MultiMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA2CF8219DD2D40069051B /* MultiMediaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6E9A5B0D21921CFF00EF4348 /* iSocialize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSocialize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9A5B1021921CFF00EF4348 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6E9A5B1221921CFF00EF4348 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6E9A5B1521921CFF00EF4348 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E9A5B1721921D0000EF4348 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E9A5B1A21921D0000EF4348 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E9A5B1C21921D0000EF4348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EBA2CDB219DD0E80069051B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6EBA2CDE219DD11E0069051B /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsTableViewController.swift; sourceTree = "<group>"; };
+		6EBA2CE0219DD1370069051B /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		6EBA2CE2219DD1670069051B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		6EBA2CE4219DD1930069051B /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		6EBA2CE8219DD1D20069051B /* LodingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodingTableViewController.swift; sourceTree = "<group>"; };
+		6EBA2CEA219DD1E50069051B /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		6EBA2CEC219DD1F60069051B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6EBA2CEE219DD2100069051B /* SearchEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEventsViewController.swift; sourceTree = "<group>"; };
+		6EBA2CF0219DD2250069051B /* SearchedEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedEventsTableViewController.swift; sourceTree = "<group>"; };
+		6EBA2CF2219DD23F0069051B /* SearchedEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedEventTableViewCell.swift; sourceTree = "<group>"; };
+		6EBA2CF4219DD2B70069051B /* SearchedEventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedEventDetailsViewController.swift; sourceTree = "<group>"; };
+		6EBA2CF6219DD2C60069051B /* TicketScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScanViewController.swift; sourceTree = "<group>"; };
+		6EBA2CF8219DD2D40069051B /* MultiMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiMediaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +80,35 @@
 		6E9A5B0F21921CFF00EF4348 /* iSocialize */ = {
 			isa = PBXGroup;
 			children = (
+				6EBA2CDD219DD0F90069051B /* ViewControllers */,
 				6E9A5B1021921CFF00EF4348 /* AppDelegate.swift */,
-				6E9A5B1221921CFF00EF4348 /* ViewController.swift */,
 				6E9A5B1421921CFF00EF4348 /* Main.storyboard */,
 				6E9A5B1721921D0000EF4348 /* Assets.xcassets */,
 				6E9A5B1921921D0000EF4348 /* LaunchScreen.storyboard */,
 				6E9A5B1C21921D0000EF4348 /* Info.plist */,
 			);
 			path = iSocialize;
+			sourceTree = "<group>";
+		};
+		6EBA2CDD219DD0F90069051B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6EBA2CDB219DD0E80069051B /* HomeViewController.swift */,
+				6EBA2CDE219DD11E0069051B /* MyEventsTableViewController.swift */,
+				6EBA2CE0219DD1370069051B /* AddEventViewController.swift */,
+				6EBA2CE2219DD1670069051B /* WebViewController.swift */,
+				6EBA2CE4219DD1930069051B /* EventDetailsViewController.swift */,
+				6EBA2CE8219DD1D20069051B /* LodingTableViewController.swift */,
+				6EBA2CEA219DD1E50069051B /* NewsTableViewController.swift */,
+				6EBA2CEC219DD1F60069051B /* MapViewController.swift */,
+				6EBA2CEE219DD2100069051B /* SearchEventsViewController.swift */,
+				6EBA2CF0219DD2250069051B /* SearchedEventsTableViewController.swift */,
+				6EBA2CF2219DD23F0069051B /* SearchedEventTableViewCell.swift */,
+				6EBA2CF4219DD2B70069051B /* SearchedEventDetailsViewController.swift */,
+				6EBA2CF6219DD2C60069051B /* TicketScanViewController.swift */,
+				6EBA2CF8219DD2D40069051B /* MultiMediaViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +182,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E9A5B1321921CFF00EF4348 /* ViewController.swift in Sources */,
+				6EBA2CE5219DD1930069051B /* EventDetailsViewController.swift in Sources */,
+				6EBA2CDF219DD11E0069051B /* MyEventsTableViewController.swift in Sources */,
+				6EBA2CF5219DD2B70069051B /* SearchedEventDetailsViewController.swift in Sources */,
+				6EBA2CF7219DD2C60069051B /* TicketScanViewController.swift in Sources */,
+				6EBA2CF3219DD23F0069051B /* SearchedEventTableViewCell.swift in Sources */,
+				6EBA2CEF219DD2100069051B /* SearchEventsViewController.swift in Sources */,
+				6EBA2CE9219DD1D20069051B /* LodingTableViewController.swift in Sources */,
+				6EBA2CF1219DD2250069051B /* SearchedEventsTableViewController.swift in Sources */,
+				6EBA2CE1219DD1370069051B /* AddEventViewController.swift in Sources */,
+				6EBA2CED219DD1F60069051B /* MapViewController.swift in Sources */,
+				6EBA2CEB219DD1E50069051B /* NewsTableViewController.swift in Sources */,
 				6E9A5B1121921CFF00EF4348 /* AppDelegate.swift in Sources */,
+				6EBA2CE3219DD1670069051B /* WebViewController.swift in Sources */,
+				6EBA2CDC219DD0E80069051B /* HomeViewController.swift in Sources */,
+				6EBA2CF9219DD2D40069051B /* MultiMediaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U3465V32BF;
 				INFOPLIST_FILE = iSocialize/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -292,7 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.vt.JovanRivera.iSocialize;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -303,6 +364,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U3465V32BF;
 				INFOPLIST_FILE = iSocialize/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.vt.JovanRivera.iSocialize;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
