@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,10 +31,10 @@
             </objects>
             <point key="canvasLocation" x="-17" y="-12"/>
         </scene>
-        <!--View Controller-->
+        <!--Ticket Scan View Controller-->
         <scene sceneID="i7D-Sj-Qoh">
             <objects>
-                <viewController id="TiN-Pd-Njl" sceneMemberID="viewController">
+                <viewController id="TiN-Pd-Njl" customClass="TicketScanViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pY1-yV-cqc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +50,7 @@
         <!--Media-->
         <scene sceneID="t7e-Ql-ogm">
             <objects>
-                <viewController id="uYs-6E-BUt" sceneMemberID="viewController">
+                <viewController id="uYs-6E-BUt" customClass="MultiMediaViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ldc-j9-Luo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,7 +305,7 @@
         <!--My Events-->
         <scene sceneID="49k-2q-YZ3">
             <objects>
-                <tableViewController id="m1w-Vx-5FR" sceneMemberID="viewController">
+                <tableViewController id="m1w-Vx-5FR" customClass="MyEventsTableViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dP4-Ts-aFf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,7 +340,7 @@
         <!--Event Search-->
         <scene sceneID="L91-0I-NfZ">
             <objects>
-                <viewController id="1IA-M0-Zdn" sceneMemberID="viewController">
+                <viewController id="1IA-M0-Zdn" customClass="SearchEventsViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U78-dj-Ewh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -387,10 +388,10 @@
             </objects>
             <point key="canvasLocation" x="2087" y="801"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Searched Events Table View Controller-->
         <scene sceneID="hsj-Je-CcT">
             <objects>
-                <tableViewController id="usA-uy-xgH" sceneMemberID="viewController">
+                <tableViewController id="usA-uy-xgH" customClass="SearchedEventsTableViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2EW-YI-ul2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,10 +440,10 @@
             </objects>
             <point key="canvasLocation" x="2820" y="801"/>
         </scene>
-        <!--View Controller-->
+        <!--Event Details View Controller-->
         <scene sceneID="USz-Gr-DBF">
             <objects>
-                <viewController id="Mao-pf-Djd" customClass="ViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mao-pf-Djd" customClass="EventDetailsViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pdm-yS-6Gn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -547,7 +548,7 @@
         <!--Lodging-->
         <scene sceneID="3B3-uj-hwV">
             <objects>
-                <tableViewController id="MKu-lf-jG2" sceneMemberID="viewController">
+                <tableViewController id="MKu-lf-jG2" customClass="LodingTableViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o7h-qq-l6U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -576,10 +577,10 @@
             </objects>
             <point key="canvasLocation" x="4369" y="6"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="Kxb-rU-1IT">
             <objects>
-                <viewController id="oJk-bc-fXP" customClass="ViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oJk-bc-fXP" customClass="WebViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yu1-1f-UVV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -632,7 +633,7 @@
         <!--Add Event-->
         <scene sceneID="V7e-ng-6mg">
             <objects>
-                <viewController id="pFw-qP-LCZ" sceneMemberID="viewController">
+                <viewController id="pFw-qP-LCZ" customClass="AddEventViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MCH-kR-F6H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -728,7 +729,7 @@
         <!--News-->
         <scene sceneID="Cv9-Sc-Nsf">
             <objects>
-                <tableViewController id="bYh-Qz-TFh" sceneMemberID="viewController">
+                <tableViewController id="bYh-Qz-TFh" customClass="NewsTableViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tY0-wd-93x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -760,7 +761,7 @@
         <!--Map-->
         <scene sceneID="2gu-To-iOQ">
             <objects>
-                <viewController id="RZJ-Tx-SuA" sceneMemberID="viewController">
+                <viewController id="RZJ-Tx-SuA" customClass="MapViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bdv-Bm-fnm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -787,7 +788,7 @@
         <!--Searched Event-->
         <scene sceneID="xiD-81-P9C">
             <objects>
-                <viewController id="6Ag-Gu-rwQ" customClass="ViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Ag-Gu-rwQ" customClass="SearchedEventDetailsViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ciE-jf-4Yo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -891,6 +892,6 @@
         <image name="photo1" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rtq-j0-SKM"/>
+        <segue reference="5hz-xd-7TT"/>
     </inferredMetricsTieBreakers>
 </document>
