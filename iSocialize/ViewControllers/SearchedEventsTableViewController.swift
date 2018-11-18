@@ -10,6 +10,8 @@ import UIKit
 
 class SearchedEventsTableViewController: UITableViewController {
 
+    var searchDataPassed = [[String:String]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,10 @@ class SearchedEventsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    // API Documentation for the search requirements: http://api.eventful.com/docs/events/search
+    func processSearchRequest(){
     }
 
     // MARK: - Table view data source
