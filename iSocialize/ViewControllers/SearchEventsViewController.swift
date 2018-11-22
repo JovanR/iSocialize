@@ -38,6 +38,9 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     func performSearch(){
+        // Clear previous search results
+        searchedEvents.removeAll()
+        
         /*************** List of Actions Performed below ***************
          1. Form the API search query based on user input
          2. Obtain JSON data from the eventful API for the search query.
@@ -116,22 +119,62 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
             
             let resultsArray =  eventsDictionary["event"]
             
+            // Initialize Variables
+            var title = "null"
+            var latitude = "null"
+            var longitude = "null"
+            var url = "null"
+            var region_name = "null"
+            var start_time = "No Start Time Provided."
+            var venue_name = "null"
+            var venue_address = "null"
+            var city_name = "null"
+            var imageURL = "null"
+            var description = "No Description Provided."
+            
             for i in 0..<resultsArray!.count{
                 // Typecast the returned NSDictionary as Dictionary<String, AnyObject>
-                let title = resultsArray![i]["title"] as! String
-                let latitude = resultsArray![i]["latitude"] as! String
-                let longitude = resultsArray![i]["longitude"] as! String
-                let url = resultsArray![i]["url"] as! String
-                // region_name ?
-                let start_time = resultsArray![i]["start_time"] as! String
-                let venue_name = resultsArray![i]["venue_name"] as! String
+                if (resultsArray![i]["title"] as? String) != nil{
+                    title = resultsArray![i]["title"] as! String
+                }
+                if (resultsArray![i]["latitude"] as? String) != nil{
+                    latitude = resultsArray![i]["latitude"] as! String
+                }
+                if (resultsArray![i]["longitude"] as? String) != nil{
+                    longitude = resultsArray![i]["longitude"] as! String
+                }
+                if (resultsArray![i]["url"] as? String) != nil{
+                    url = resultsArray![i]["url"] as! String
+                }
+                if (resultsArray![i]["region_name"] as? String) != nil{
+                    region_name = resultsArray![i]["region_name"] as! String
+                }
+                if (resultsArray![i]["start_time"] as? String) != nil{
+                    start_time = resultsArray![i]["start_time"] as! String
+                }
+                if (resultsArray![i]["venue_name"] as? String) != nil{
+                     venue_name = resultsArray![i]["venue_name"] as! String
+                }
+                if (resultsArray![i]["venue_address"] as? String) != nil{
+                    venue_address = resultsArray![i]["venue_address"] as! String
+                }
+                if (resultsArray![i]["city_name"] as? String) != nil{
+                    city_name = resultsArray![i]["city_name"] as! String
+                }
+                if (resultsArray![i]["description"] as? String) != nil{
+                    description = resultsArray![i]["description"] as! String
+                }
+                if let imageDictionary = resultsArray![i]["image"] as? [String:AnyObject]{
+                    if(imageDictionary["url"] as? String) != nil{
+                        imageURL = imageDictionary["url"] as! String
+                    }
+                }
+                
+                
                 // venue_url ?
-//                let imageDictionary = resultsArray![i]["image"] as! [String:String]
-//                let imageURL = imageDictionary["url"]
-                let city_name = resultsArray![i]["city_name"] as! String
                 
                 /* ----------------------------------------------------------------------------
-                 4. Create a array of dictionaries containing all of the searchedEvent data.
+                 4. Create an array of dictionaries containing all of the searchedEvent data.
                  ----------------------------------------------------------------------------*/
                 var searchedEvent = [String:String]()
                 searchedEvent["title"] = title
@@ -140,11 +183,14 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
                 searchedEvent["url"] = url
                 searchedEvent["start_time"] = start_time
                 searchedEvent["venue_name"] = venue_name
+                searchedEvent["venue_address"] = venue_address
+                searchedEvent["region_name"] = region_name
                 searchedEvent["city_name"] = city_name
+                searchedEvent["imageURL"] = imageURL
+                searchedEvent["description"] = description
+                searchedEvent["category"] = categories[categoryPickerView.selectedRow(inComponent: 0)].replacingOccurrences(of: "&amp;", with: "&")
                 searchedEvents.append(searchedEvent)
             }
-            
-            
         } else {
             showAlertMessage(messageHeader: "JSON Data", messageBody: "Unable to obtain the JSON data file!")
         }

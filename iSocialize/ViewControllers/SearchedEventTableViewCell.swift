@@ -9,7 +9,14 @@
 import UIKit
 
 class SearchedEventTableViewCell: UITableViewCell {
-
+    
+     // Instance variables holding the object references of the Table View Cell UI objects created in Storyboard
+    @IBOutlet var searchedEventImageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var startTimeLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
