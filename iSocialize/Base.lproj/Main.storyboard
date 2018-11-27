@@ -512,7 +512,7 @@
                     <navigationItem key="navigationItem" title="Title" id="vyg-db-bDa"/>
                     <connections>
                         <outlet property="searchedEventsTableView" destination="2EW-YI-ul2" id="nSD-gQ-ANx"/>
-                        <segue destination="oJk-bc-fXP" kind="show" id="5hz-xd-7TT"/>
+                        <segue destination="oJk-bc-fXP" kind="show" identifier="Event Website" id="5hz-xd-7TT"/>
                         <segue destination="6Ag-Gu-rwQ" kind="show" identifier="Searched Event Details" id="HD1-U1-r7Y"/>
                     </connections>
                 </tableViewController>

@@ -154,18 +154,18 @@ class SearchedEventsTableViewController: UITableViewController {
     //--------------------------------
     
     // This is the method invoked when the user taps the Detail Disclosure button (circle icon with i)
-//    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-//        
-//        let rowNumber = (indexPath as NSIndexPath).row
-//        
-//        // Obtain the stock symbol of the selected Company
-//        let selectedArticle = dictionaryOfArticleData[rowNumber]
-//        
-//        // Typecast the AnyObject to Swift array of String objects
-//        articleDataToPass = selectedArticle
-//        
-//        performSegue(withIdentifier: "News Website", sender: self)
-//    }
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        let rowNumber = (indexPath as NSIndexPath).row
+        
+        // Obtain the stock symbol of the selected Company
+        let selectedEvent = searchDataPassed[rowNumber]
+        
+        // Typecast the AnyObject to Swift array of String objects
+        eventDataToPass = selectedEvent
+        
+        performSegue(withIdentifier: "Event Website", sender: self)
+    }
 
     
     /*
@@ -186,18 +186,20 @@ class SearchedEventsTableViewController: UITableViewController {
             // Pass the data object to the downstream view controller object
             searchedEventDetailsViewController.eventDataPassed = eventDataToPass
             
-        } else if segue.identifier == "News Website" {
-//            
-//            // Obtain the object reference of the destination view controller
-//            let websiteViewController: WebsiteViewController = segue.destination as! WebsiteViewController
-//            var dataToPass = [String]()
-//
-//            let website = articleDataToPass["url"] as! String
-//            dataToPass.append(website)
-//            let source = articleDataToPass["source"]!["name"] as! String
-//            dataToPass.append(source)
-//            // Pass the data object to the downstream view controller object
-//            websiteViewController.dataToBePassed = dataToPass
+        } else if segue.identifier == "Event Website" {
+            
+            // Obtain the object reference of the destination view controller
+            let webViewController: WebViewController = segue.destination as! WebViewController
+            var dataToPass = [String]()
+            
+            let url = eventDataToPass["url"]
+            let title = eventDataToPass["title"]
+            
+            dataToPass.append(url!)
+            dataToPass.append(title!)
+            
+            // Pass the data object to the downstream view controller object
+            webViewController.dataToBePassed = dataToPass
         }
     }
  
