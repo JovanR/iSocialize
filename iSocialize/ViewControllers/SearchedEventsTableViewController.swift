@@ -71,7 +71,18 @@ class SearchedEventsTableViewController: UITableViewController {
         cell.locationLabel.text = cityName! + ", " + regionName!
         
         let start_time = searchDataPassed[rowNumber]["start_time"]
-        cell.startTimeLabel.text = start_time
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy HH:mm"
+        
+        if let date = dateFormatterGet.date(from: start_time!) {
+            cell.startTimeLabel.text = dateFormatterPrint.string(from: date)
+        } else {
+            cell.startTimeLabel.text = "error"
+        }
+        
         
         // Set Event Image
         let eventImageUrl = searchDataPassed[rowNumber]["imageURL"]
