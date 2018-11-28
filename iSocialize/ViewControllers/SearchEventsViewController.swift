@@ -12,6 +12,7 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     var categories = [String]()
     var categoryIds = [String]()
+    var dateArray = [String]()
     
     // Instantiate an array of dictionaries to store searched events
     var searchedEvents = [[String:String]]()
@@ -19,7 +20,11 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet var searchLocationTextField: UITextField!
     @IBOutlet var searchKeywordTextField: UITextField!
     @IBOutlet var categoryPickerView: UIPickerView!
+    @IBOutlet var dateRangePickerView: UIPickerView!
+    @IBOutlet var maxNumberSegmentedControl: UISegmentedControl!
+    @IBOutlet var searchButton: UIButton!
     
+    // Goes off when search button is pressed
     @IBAction func SearchButtonPressed(_ sender: Any) {
         performSearch()
         performSegue(withIdentifier: "Perform Search", sender: self)
@@ -28,15 +33,25 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Prepare Picker Data
         getCategories()
+        getDates()
         
         // Sort categories in alphabetical order
         categories.sort{ $0 < $1 }
         
         // Show Category Picker View middle row as the selected one
         categoryPickerView.selectRow(Int(categories.count / 2), inComponent: 0, animated: false)
+        dateRangePickerView.selectRow(Int(dateArray.count / 2), inComponent: 0, animated:false)
+        
+        // Style button
+        searchButton.backgroundColor = UIColor.clear
+        searchButton.layer.cornerRadius = 10
+        searchButton.layer.borderWidth = 1
+        searchButton.layer.borderColor = UIColor.blue.cgColor
     }
     
+    // Perform the search on the API
     func performSearch(){
         // Clear previous search results
         searchedEvents.removeAll()
@@ -55,21 +70,46 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
         -------------------------------------------------*/
         var apiSearchUrl = "http://api.eventful.com/json/events/search?app_key=Cn8jSwzSL92VFNc8"
         
+        // Set Category Parameter
         let category = categoryIds[categoryPickerView.selectedRow(inComponent: 0)]
         apiSearchUrl += "&category=\(category)"
         
+        // Set Keyword parameter
         if searchKeywordTextField.text != "" && searchKeywordTextField.text != " "{
             var keyword = searchKeywordTextField.text
             keyword = keyword!.replacingOccurrences(of: " ", with: "+")
             apiSearchUrl += "&keywords=\(keyword!)"
         }
         
+        // Set location parameter
         if searchLocationTextField.text != "" && searchLocationTextField.text != " "{
-            let location = searchLocationTextField.text
+            var location = searchLocationTextField.text
+            location = location!.replacingOccurrences(of: " ", with: "+")
             apiSearchUrl += "&location=\(location!)"
         }
         
-        apiSearchUrl += "&date=Future"
+        // Set page size parameter
+        var page_size = 10
+        switch maxNumberSegmentedControl.selectedSegmentIndex {
+        case 0:
+            page_size = 10
+        case 1:
+            page_size = 20
+        case 2:
+            page_size = 30
+        case 3:
+            page_size = 40
+        case 4:
+            page_size = 50
+        default:
+            page_size = 10
+        }
+        apiSearchUrl += "&page_size=\(page_size)"
+        
+        // Set Date parameter
+        var date = dateArray[dateRangePickerView.selectedRow(inComponent: 0)]
+        date = date.replacingOccurrences(of: " ", with: "+")
+        apiSearchUrl += "&date=\(date)"
         
         /*
          ------------------------------------------------------------------
@@ -115,25 +155,37 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
             
             let jsonDataDictionary = try! JSONSerialization.jsonObject(with: jsonDataFromApiUrl, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
             
+            // If no items were found using the search criteria
+            if jsonDataDictionary["total_items"] as! String == "0"{
+                showAlertMessage(messageHeader: "No Items Found", messageBody: "No items were found using the search criteria. Please try another search query.")
+                return
+            }
+            
             let eventsDictionary =  jsonDataDictionary["events"] as! [String:[[String: AnyObject]]]
             
             let resultsArray =  eventsDictionary["event"]
             
             // Initialize Variables
+            var id = "null"
             var title = "null"
             var latitude = "null"
             var longitude = "null"
             var url = "null"
             var region_name = "null"
             var start_time = "No Start Time Provided."
+            var stop_time = "No Stop Time Provided."
             var venue_name = "null"
             var venue_address = "null"
             var city_name = "null"
+            var country_name = "null"
             var imageURL = "null"
             var description = "No Description Provided."
             
             for i in 0..<resultsArray!.count{
                 // Typecast the returned NSDictionary as Dictionary<String, AnyObject>
+                if (resultsArray![i]["id"] as? String) != nil{
+                    id = resultsArray![i]["id"] as! String
+                }
                 if (resultsArray![i]["title"] as? String) != nil{
                     title = resultsArray![i]["title"] as! String
                 }
@@ -161,8 +213,14 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
                 if (resultsArray![i]["city_name"] as? String) != nil{
                     city_name = resultsArray![i]["city_name"] as! String
                 }
+                if (resultsArray![i]["country_name"] as? String) != nil{
+                    country_name = resultsArray![i]["country_name"] as! String
+                }
                 if (resultsArray![i]["description"] as? String) != nil{
                     description = resultsArray![i]["description"] as! String
+                }
+                if (resultsArray![i]["stop_time"] as? String) != nil{
+                    stop_time = resultsArray![i]["stop_time"] as! String
                 }
                 if let imageDictionary = resultsArray![i]["image"] as? [String:AnyObject]{
                     if(imageDictionary["url"] as? String) != nil{
@@ -177,13 +235,16 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
                  4. Create an array of dictionaries containing all of the searchedEvent data.
                  ----------------------------------------------------------------------------*/
                 var searchedEvent = [String:String]()
+                searchedEvent["id"] = id
                 searchedEvent["title"] = title
                 searchedEvent["latitude"] = latitude
                 searchedEvent["longitude"] = longitude
                 searchedEvent["url"] = url
                 searchedEvent["start_time"] = start_time
+                searchedEvent["stop_time"] = stop_time
                 searchedEvent["venue_name"] = venue_name
                 searchedEvent["venue_address"] = venue_address
+                searchedEvent["country_name"] = country_name
                 searchedEvent["region_name"] = region_name
                 searchedEvent["city_name"] = city_name
                 searchedEvent["imageURL"] = imageURL
@@ -249,6 +310,8 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
             
             let categoryDict =  jsonDataDictionary["category"] as! [[String: AnyObject]]
             
+            categories.append("All")
+            categoryIds.append("All")
             for i in 0..<categoryDict.count{
                 // Typecast the returned NSDictionary as Dictionary<String, AnyObject>
                 let name = categoryDict[i]["name"] as! String
@@ -261,6 +324,28 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
             showAlertMessage(messageHeader: "JSON Data", messageBody: "Unable to obtain the JSON data file!")
         }
         
+    }
+    
+    // Set up dates for second picker
+    func getDates(){
+        dateArray.append("Future")
+        dateArray.append("Past")
+        dateArray.append("Today")
+        dateArray.append("Last Week")
+        dateArray.append("This Week")
+        dateArray.append("Next Week")
+        dateArray.append("January")
+        dateArray.append("February")
+        dateArray.append("March")
+        dateArray.append("April")
+        dateArray.append("May")
+        dateArray.append("June")
+        dateArray.append("July")
+        dateArray.append("August")
+        dateArray.append("September")
+        dateArray.append("October")
+        dateArray.append("November")
+        dateArray.append("December")
     }
     
     /*
@@ -296,7 +381,7 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
     
      // Specifies how many rows in the Picker View component
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categories.count
+        return pickerView.tag == 0 ? categories.count : dateArray.count
     }
     
     /*
@@ -314,7 +399,34 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
         rowTitle = rowTitle.replacingOccurrences(of: "&amp;", with: "&")
         
         
-        return rowTitle
+        return pickerView.tag == 0 ? rowTitle : dateArray[row]
+    }
+    
+    /*
+     ---------------------
+     MARK: - Keyboard Done
+     ---------------------
+     */
+    
+    // This method is invoked when the user taps the Done key on the keyboard
+    @IBAction func keyboardDone(_ sender: UITextField) {
+        
+        // Once the text field is no longer the first responder, the keyboard is removed
+        sender.resignFirstResponder()
+    }
+    
+    /*
+     ------------------------------
+     MARK: - User Tapped Background
+     ------------------------------
+     */
+    @IBAction func userTappedBackground(sender: AnyObject) {
+        /*
+         "This method looks at the current view and its subview hierarchy for the text field that is
+         currently the first responder. If it finds one, it asks that text field to resign as first responder.
+         If the force parameter is set to true, the text field is never even asked; it is forced to resign." [Apple]
+         */
+        view.endEditing(true)
     }
     
 

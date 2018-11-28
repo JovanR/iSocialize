@@ -17,6 +17,12 @@ class SearchedEventDetailsViewController: UIViewController {
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var startTimeLabel: UILabel!
+    @IBOutlet var stopTimeLabel: UILabel!
+    @IBOutlet var countryLabel: UILabel!
+    @IBOutlet var regionLabel: UILabel!
+    @IBOutlet var cityLabel: UILabel!
+    
     
     
     override func viewDidLoad() {
@@ -49,6 +55,29 @@ class SearchedEventDetailsViewController: UIViewController {
         categoryLabel.text = eventDataPassed["category"]
         
         locationLabel.text = eventDataPassed["venue_address"]
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy HH:mm"
+        
+        let start_time = eventDataPassed["start_time"]
+        if let date = dateFormatterGet.date(from: start_time!) {
+            startTimeLabel.text = dateFormatterPrint.string(from: date)
+        }
+        
+        let stop_time = eventDataPassed["stop_time"]
+        if let date = dateFormatterGet.date(from: stop_time!) {
+            stopTimeLabel.text = dateFormatterPrint.string(from: date)
+        }
+        
+        countryLabel.text = eventDataPassed["country_name"]
+        
+        regionLabel.text = eventDataPassed["region_name"]
+        
+        cityLabel.text = eventDataPassed["city_name"]
+        
     }
     
 
