@@ -46,5 +46,15 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>iSocialize requires the use of your Camera to scan a bar code.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>iSocialize would like to access your microphone</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>iSocialize would like to save to your Photo Library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>iSocialize would like to access to your Photo Library</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>iSocialize woulld like to access to your Media library</string>
 </dict>
 </plist>
