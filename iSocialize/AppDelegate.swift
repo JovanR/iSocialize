@@ -63,16 +63,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             
-            // EventsILike.plist does not exist in the Document directory; Read it from the main bundle.
-            
-            // Obtain the file path to the plist file in the mainBundle (project folder)
-            let plistFilePathInMainBundle = Bundle.main.path(forResource: "EventsILike", ofType: "plist")
-            
-            // Instantiate an NSMutableDictionary object and initialize it with the contents of the EventsILike.plist file.
-            let dictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInMainBundle!)
-            
-            // Store the object reference into the instance variable
-            dictOfEventsILike = dictionaryFromFileInMainBundle!
+//            // EventsILike.plist does not exist in the Document directory; Read it from the main bundle.
+//            
+//            // Obtain the file path to the plist file in the mainBundle (project folder)
+//            let plistFilePathInMainBundle = Bundle.main.path(forResource: "EventsILike", ofType: "plist")
+//            
+//            // Instantiate an NSMutableDictionary object and initialize it with the contents of the EventsILike.plist file.
+//            let dictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInMainBundle!)
+//            
+//            // Store the object reference into the instance variable
+//            dictOfEventsILike = dictionaryFromFileInMainBundle!
         }
         
         return true
