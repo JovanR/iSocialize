@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     // Number of images in the slide show
     let numberOfImages = 9
     
@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
         let currentImageNumber = sender.tag
         
         // Set the image of the UIImageView object, which is our image slider
-        imageView.image = UIImage(named: "photo\(currentImageNumber).png")!
+        imageView.image = UIImage(named: "image\(currentImageNumber).jpg")!
         
         // Change the button images
         currentImageButtonTapped.setImage(circleFullImage, for: .normal)
@@ -90,7 +90,7 @@ class HomeViewController: UIViewController {
         previousImageNumber = 1
         
         // Create a new timer
-//        startTimer()
+        startTimer()
     }
     
     /*
@@ -126,7 +126,7 @@ class HomeViewController: UIViewController {
             
             // Make initializations to start the slide show again with image 1
             previousImageNumber = 1
-            imageView.image = UIImage(named: "photo1.png")!
+            imageView.image = UIImage(named: "image1.jpg")!
             imageButton1.setImage(circleFullImage, for: .normal)
             previousImageButtonTapped = imageButton1
             
@@ -141,12 +141,13 @@ class HomeViewController: UIViewController {
             listOfImageButtons[previousImageNumber - 1].setImage(circleFullImage, for: .normal)
             
             // Set the slider (UIImageView) to show the next image
-//            imageView.image = UIImage(named: "photo\(previousImageNumber).png")!
+            imageView.image = UIImage(named: "image\(previousImageNumber).jpg")!
+            
             
             // Set the previousImageButtonTapped to be the current button
             previousImageButtonTapped = listOfImageButtons[previousImageNumber - 1]
         }
     }
     
-
+    
 }

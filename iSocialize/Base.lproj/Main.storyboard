@@ -1337,7 +1337,7 @@
                     <navigationItem key="navigationItem" title="My Events" id="qHL-Zn-t9u"/>
                     <connections>
                         <outlet property="myEventsTableView" destination="7Gc-7I-EdN" id="4Hc-v8-PF6"/>
-                        <segue destination="1IA-M0-Zdn" kind="show" id="q9m-Wa-n4z"/>
+                        <segue destination="1IA-M0-Zdn" kind="show" identifier="Add Event" id="q9m-Wa-n4z"/>
                         <segue destination="0sk-lR-emK" kind="show" identifier="Event Details" id="8PO-bo-foM"/>
                     </connections>
                 </tableViewController>
