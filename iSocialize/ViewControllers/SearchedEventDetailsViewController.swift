@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SearchedEventDetailsViewController: UIViewController {
 
@@ -23,11 +24,37 @@ class SearchedEventDetailsViewController: UIViewController {
     @IBOutlet var regionLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
     
+    // Declare a speechSynthesizer
+    let speechSynthesizer = AVSpeechSynthesizer()
     
+    // Declare playButton as an Optional instance variable to hold the object reference of a UIBarButtonItem object
+    var playButton: UIBarButtonItem?
     
+    // Declare pauseButton as an Optional instance variable to hold the object reference of a UIBarButtonItem object
+    var pauseButton: UIBarButtonItem?
+    
+    /*
+     -----------------------
+     MARK: - View Life Cycle
+     -----------------------
+     */
+    
+    //--------------
+    // View Did Load
+    //--------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Create a Pause button to be placed on the left corner of the navigation bar
+        pauseButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.pause, target: self, action: #selector(pauseButtonTapped))
+        
+        // Create a Play button to be placed on the left corner of the navigation bar
+        playButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.play, target: self, action: #selector(playButtonTapped))
+        
+        // Place the Play button on the right corner of the navigation bar
+        self.navigationItem.rightBarButtonItem = playButton
+        
+        // -- Set labels --
         titleLabel.text = eventDataPassed["title"]
         
         // Set Event Image
@@ -77,8 +104,58 @@ class SearchedEventDetailsViewController: UIViewController {
         regionLabel.text = eventDataPassed["region_name"]
         
         cityLabel.text = eventDataPassed["city_name"]
+        // -- End Set Labels --
         
     }
+    
+    //--------------------
+    // View Will Disappear
+    //--------------------
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        // Place the Play button
+        self.navigationItem.rightBarButtonItem = playButton
+        
+        // If the created audio player is playing, stop playing
+        if speechSynthesizer.isSpeaking {
+            
+            speechSynthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)    // Stop playing the audio file
+        }
+    }
+    
+    //--------------------
+    // Play button pressed
+    //--------------------
+    @objc func playButtonTapped(_ sender: Any) {
+        // Replace the Play button with Pause button
+        self.navigationItem.rightBarButtonItem = pauseButton
+        
+        // If it not currently speaking, start speaking, otherwise continue where left off
+        if !speechSynthesizer.isSpeaking {
+            let speechUtterance = AVSpeechUtterance(string: descriptionTextView.text)
+            speechSynthesizer.speak(speechUtterance)
+            
+        }
+        else{
+            speechSynthesizer.continueSpeaking()
+        }
+    }
+    
+    //--------------------
+    // Pause button pressed
+    //--------------------
+    @objc func pauseButtonTapped(_ sender: Any) {
+        // Replace the Pause button with Play button
+        self.navigationItem.rightBarButtonItem = playButton
+        
+        // Pause speaking the text
+        speechSynthesizer.pauseSpeaking(at: AVSpeechBoundary.immediate)
+    }
+    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+    }
+    
     
 
     /*
