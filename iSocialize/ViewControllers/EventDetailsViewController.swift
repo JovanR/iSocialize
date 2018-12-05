@@ -9,22 +9,62 @@
 import UIKit
 
 class EventDetailsViewController: UIViewController {
-
+    
+    @IBOutlet var eventTitleLabel: UILabel!
+    @IBOutlet var eventImageView: UIImageView!
+    @IBOutlet var eventDescriptionLabel: UITextView!
+    @IBOutlet var eventLocationLabel: UILabel!
+    @IBOutlet var moreInfoButton: UIButton!
+    
+    //Event data obtained from upstream view controller
+    var eventDataObtained = [String]()
+    
+    /*
+     eventDataPassed = [ "id",
+     "title",
+     "latitude",
+     "longitude",
+     "start_time",
+     "venue_name",
+     "venue_address",
+     "region_name",
+     "city_name",
+     "imageURL",
+     "description",
+     "category"]*/
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func moreButtonTapped(_ sender: UIButton) {
+        // Perform the segue named Event Trailer
+        performSegue(withIdentifier: "Page View", sender: self)
     }
-    */
-
+    
+    /*
+     -------------------------
+     MARK: - Prepare For Segue
+     -------------------------
+     */
+    
+    // This method is called by the system whenever you invoke the method performSegueWithIdentifier:sender:
+    // You never call this method. It is invoked by the system.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if segue.identifier == "Page View" {
+            
+//            // Obtain the object reference of the destination view controller
+//            let pageViewController: PageViewController = segue.destination as! PageViewController
+//            
+//            //Pass the data object to the destination view controller object
+//            pageViewController.eventDataPassed = eventDataObtained
+            
+        }
+    }
+    
 }

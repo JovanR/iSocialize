@@ -10,17 +10,13 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     // Instance variable to hold the object reference of a Dictionary object, the content of which is modifiable at runtime
-    var dictOfEventsILike: NSMutableDictionary = NSMutableDictionary()
-
-    /*
-     ---------------------------
-     MARK: - Read the Dictionary
-     ---------------------------
-     */
+    var dict_MyEvents: NSMutableDictionary = NSMutableDictionary()
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         /*
          All application-specific and user data must be written to files that reside in the iOS device's
@@ -43,41 +39,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let documentDirectoryPath = paths[0] as String
         
         // Add the plist filename to the document directory path to obtain an absolute path to the plist filename
-        let plistFilePathInDocumentDirectory = documentDirectoryPath + "/EventsILike.plist"
+        let plistFilePathInDocumentDirectory = documentDirectoryPath + "/iSocialize.plist"
         
         /*
          NSMutableDictionary manages an *unordered* collection of mutable (modifiable) key-value pairs.
-         Instantiate an NSMutableDictionary object and initialize it with the contents of the EventsILike.plist file.
+         Instantiate NSMutableDictionary objects and initialize them with the contents of the iSocialize.plist
          */
         let dictionaryFromFile: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInDocumentDirectory)
         
         /*
          IF the optional variable dictionaryFromFile has a value, THEN
-         EventsILike.plist exists in the Document directory and the dictionary is successfully created
-         ELSE read EventsILike.plist from the application's main bundle.
+         iSocialize.plist exists in the Document directory and the dictionary is successfully created
+         ELSE read iSocialize.plist from the application's main bundle.
          */
         if let dictionaryFromFileInDocumentDirectory = dictionaryFromFile {
             
-            // EventsILike.plist exists in the Document directory
-            dictOfEventsILike = dictionaryFromFileInDocumentDirectory
+            // iSocialize.plist exists in the Document directory
+            dict_MyEvents = dictionaryFromFileInDocumentDirectory
             
         } else {
             
-//            // EventsILike.plist does not exist in the Document directory; Read it from the main bundle.
-//            
-//            // Obtain the file path to the plist file in the mainBundle (project folder)
-//            let plistFilePathInMainBundle = Bundle.main.path(forResource: "EventsILike", ofType: "plist")
-//            
-//            // Instantiate an NSMutableDictionary object and initialize it with the contents of the EventsILike.plist file.
-//            let dictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInMainBundle!)
-//            
-//            // Store the object reference into the instance variable
-//            dictOfEventsILike = dictionaryFromFileInMainBundle!
+            // iSocialize.plist does not exist in the Document directory; Read it from the main bundle.
+            
+            // Obtain the file path to the plist file in the mainBundle (project folder)
+            let plistFilePathInMainBundle = Bundle.main.path(forResource: "iSocialize", ofType: "plist")
+            
+            // Instantiate an NSMutableDictionary object and initialize it with the contents of the iSocialize.plist file.
+            let dictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInMainBundle!)
+            
+            // Store the object reference into the instance variable
+            dict_MyEvents = dictionaryFromFileInMainBundle!
         }
-        
         return true
     }
-    
     /*
      ----------------------------
      MARK: - Write the Dictionary
@@ -91,15 +85,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          locked, and gains focus when the device is unlocked." [Apple]
          */
         
-        // Define the file path to the EventsILike.plist file in the Document directory
+        // Define the file path to the CompaniesILike.plist file in the Document directory
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentDirectoryPath = paths[0] as String
         
         // Add the plist filename to the document directory path to obtain an absolute path to the plist filename
-        let plistFilePathInDocumentDirectory = documentDirectoryPath + "/EventsILike.plist"
+        let plistFilePathInDocumentDirectory = documentDirectoryPath + "/iSocialize.plist"
         
-        // Write the NSMutableDictionary to the EventsILike.plist file in the Document directory
-        dictOfEventsILike.write(toFile: plistFilePathInDocumentDirectory, atomically: true)
+        // Write the NSMutableDictionary to the CompaniesILike.plist file in the Document directory
+        dict_MyEvents.write(toFile: plistFilePathInDocumentDirectory, atomically: true)
         
         /*
          The flag "atomically" specifies whether the file should be written atomically or not.
@@ -114,6 +108,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
     }
     
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
@@ -126,4 +125,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    
 }
+
