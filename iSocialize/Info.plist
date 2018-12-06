@@ -55,6 +55,10 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>iSocialize would like to access to your Photo Library</string>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>iSocialize woulld like to access to your Media library</string>
+	<string>iSocialize would like to access to your Media library</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>iSocialize requires your location only when you are using the app!</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>iSocialize requires your permission to save this event to your calendar!</string>
 </dict>
 </plist>

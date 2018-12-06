@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Instance variable to hold the object reference of a Dictionary object, the content of which is modifiable at runtime
     var dict_MyEvents: NSMutableDictionary = NSMutableDictionary()
+    var eventDataPassed = [String]()
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
