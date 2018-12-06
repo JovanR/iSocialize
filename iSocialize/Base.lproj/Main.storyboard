@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pgp-ha-yoY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pgp-ha-yoY">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -274,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSB-08-sLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2011.875" y="800.70422535211264"/>
+            <point key="canvasLocation" x="2087" y="801"/>
         </scene>
         <!--Title-->
         <scene sceneID="hsj-Je-CcT">
@@ -356,39 +356,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gB-kE-Ulv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="800.70422535211264"/>
-        </scene>
-        <!--Lodging-->
-        <scene sceneID="3B3-uj-hwV">
-            <objects>
-                <tableViewController id="MKu-lf-jG2" customClass="LodingTableViewController" customModule="iSocialize" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o7h-qq-l6U">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="h4M-hd-WfT">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h4M-hd-WfT" id="KYz-qV-qv9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="MKu-lf-jG2" id="Uvr-Sw-abj"/>
-                            <outlet property="delegate" destination="MKu-lf-jG2" id="MmS-fR-WX6"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Lodging" id="wtu-Vq-dH2"/>
-                    <connections>
-                        <segue destination="oJk-bc-fXP" kind="show" identifier="Website" id="Rtq-j0-SKM"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gMP-8b-FUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4369" y="6"/>
+            <point key="canvasLocation" x="3096" y="801"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="Kxb-rU-1IT">
@@ -399,7 +367,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpC-9P-eT9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -422,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAV-7O-YRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5687" y="-718"/>
+            <point key="canvasLocation" x="5687" y="-386"/>
         </scene>
         <!--Search-->
         <scene sceneID="FVV-zU-0Df">
@@ -644,6 +612,7 @@
                                                 <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="saveButtonPressed:" destination="6Ag-Gu-rwQ" eventType="touchUpInside" id="pIo-cG-4gK"/>
+                                                    <segue destination="W6a-Qg-Pe2" kind="unwind" identifier="AddEvent-Save" unwindAction="unwindToEventsILikeTableViewControllerWithSegue:" id="U9a-0Q-3jI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLK-mU-Imd">
@@ -755,8 +724,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAo-Qh-kgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="W6a-Qg-Pe2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3793" y="1019"/>
+            <point key="canvasLocation" x="4369" y="801"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="Y42-Mv-bRP">
@@ -788,7 +758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUR-uR-eL2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4726.875" y="1018.3098591549295"/>
+            <point key="canvasLocation" x="5687" y="801"/>
         </scene>
         <!--Ticket Scan-->
         <scene sceneID="71m-Td-Oh3">
@@ -921,7 +891,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glg-uA-xI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4091" y="1984"/>
+            <point key="canvasLocation" x="4369" y="1984"/>
         </scene>
         <!--Product Sellers View Controller-->
         <scene sceneID="bya-BP-iik">
@@ -955,7 +925,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HY1-AW-Krn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5031" y="1984"/>
+            <point key="canvasLocation" x="5687" y="1984"/>
         </scene>
         <!--Multi Media View Controller-->
         <scene sceneID="bTV-EM-gnZ">
@@ -1374,7 +1344,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Events" id="qHL-Zn-t9u"/>
                     <connections>
-                        <outlet property="myEventsTableView" destination="7Gc-7I-EdN" id="4Hc-v8-PF6"/>
+                        <outlet property="myEventsTableView" destination="7Gc-7I-EdN" id="X8p-Yv-ZwW"/>
                         <segue destination="1IA-M0-Zdn" kind="show" identifier="Add Event" id="q9m-Wa-n4z"/>
                         <segue destination="0sk-lR-emK" kind="show" identifier="Event Details" id="8PO-bo-foM"/>
                     </connections>
@@ -1497,7 +1467,7 @@
         <image name="homeBackground" width="2560" height="1440"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rtq-j0-SKM"/>
+        <segue reference="5hz-xd-7TT"/>
         <segue reference="q9m-Wa-n4z"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -136,7 +136,7 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
             jsonData = try Data(contentsOf: url!, options: NSData.ReadingOptions.mappedIfSafe)
             
         } catch {
-            showAlertMessage(messageHeader: "API Unrecognized!", messageBody: "")
+            showAlertMessage(messageHeader: "No Results Found!", messageBody: "")
             return
         }
         

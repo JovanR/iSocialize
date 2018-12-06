@@ -72,7 +72,7 @@ class MyEventsTableViewController: UITableViewController {
      MARK: - Unwind Segue Method
      ---------------------------
      */
-    @IBAction func unwindToRecipesILikeTableViewController (segue : UIStoryboardSegue) {
+    @IBAction func unwindToEventsILikeTableViewController (segue : UIStoryboardSegue) {
         
         if segue.identifier == "AddEvent-Save" {
             
@@ -80,7 +80,7 @@ class MyEventsTableViewController: UITableViewController {
             let searchedEventDetailsViewController: SearchedEventDetailsViewController = segue.source as! SearchedEventDetailsViewController
             
             // Get the Event Data as a dictionary
-            let eventDataObtained:         [String:String] = searchedEventDetailsViewController.eventDataPassed
+            let eventDataObtained:[String:String] = searchedEventDetailsViewController.eventDataPassed
             
             /*
              eventDataObtained[n] = [["id":"E0-001-114645349-0@2019072319"],
@@ -97,7 +97,7 @@ class MyEventsTableViewController: UITableViewController {
              ["category":"Concerts&amp;Tour Dates"]]
              */
             
-            let eventData = [eventDataObtained["title"], eventDataObtained["latitude"],eventDataObtained["longitude"],eventDataObtained["eventDate"],eventDataObtained["eventTime"],eventDataObtained["venue_name"],eventDataObtained["venue_address"],eventDataObtained["region_name"],eventDataObtained["city_name"],eventDataObtained["imageURL"],eventDataObtained["description"],eventDataObtained["description"]]
+            let eventData = [eventDataObtained["title"], eventDataObtained["latitude"],eventDataObtained["longitude"],eventDataObtained["start_time"],eventDataObtained["stop_time"],eventDataObtained["venue_name"],eventDataObtained["venue_address"],eventDataObtained["region_name"],eventDataObtained["city_name"],eventDataObtained["imageURL"],eventDataObtained["description"],eventDataObtained["category"]]
             
             let eventIdAsKey = eventDataObtained["id"]
             
@@ -106,10 +106,12 @@ class MyEventsTableViewController: UITableViewController {
             appDelegate.dict_MyEvents.setObject(eventData, forKey: eventIdAsKey! as NSCopying)
             
             // Obtain the updated dictionary as a regular swift dictionary with the same format
-            let tempDict = appDelegate.dict_MyEvents as? [String:[String]]
+            print(appDelegate.dict_MyEvents)
+            let tempDict = appDelegate.dict_MyEvents as! [String:[String]]
+            
             
             // Sort the dictionary by event date, which is the
-            let sorted = tempDict!.sorted(by: {($0.value[3]) < ($1.value[3])}).map{$0.key}
+            let sorted = tempDict.sorted(by: {($0.value[3]) < ($1.value[3])}).map{$0.key}
             
             eventIds = sorted
             
@@ -184,7 +186,10 @@ class MyEventsTableViewController: UITableViewController {
         let givenEventId = eventIds[rowNumber]
         
         // Obtain the list of Events in the given genre as AnyObject
-        let eventData = appDelegate.dict_MyEvents[givenEventId] as! [String]
+        let eventDataObtained: AnyObject? = appDelegate.dict_MyEvents[givenEventId] as AnyObject
+        
+        // Typecast the AnyObject to Swift Array of String objects
+        var eventData = eventDataObtained! as! [String]
         
         // Set the cell title to be the Event title
         cell.eventTitleLabel.text = eventData[0]
