@@ -32,11 +32,11 @@ class TicketScanViewController: UIViewController {
         // Style the buttons to show in a rounded rectangle
         
         
-        
-        readProductCodeButton.backgroundColor = UIColor.clear
-        readProductCodeButton.layer.cornerRadius = 20
-        readProductCodeButton.layer.borderWidth = 1
-        readProductCodeButton.layer.borderColor = UIColor.blue.cgColor
+//        
+//        readProductCodeButton.backgroundColor = UIColor.clear
+//        readProductCodeButton.layer.cornerRadius = 20
+//        readProductCodeButton.layer.borderWidth = 1
+//        readProductCodeButton.layer.borderColor = UIColor.blue.cgColor
         
         
         
