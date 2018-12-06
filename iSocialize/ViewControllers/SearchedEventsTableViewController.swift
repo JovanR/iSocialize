@@ -196,6 +196,7 @@ class SearchedEventsTableViewController: UITableViewController {
             
             // Pass the data object to the downstream view controller object
             searchedEventDetailsViewController.eventDataPassed = eventDataToPass
+           
             
         } else if segue.identifier == "Event Website" {
             

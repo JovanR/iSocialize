@@ -24,6 +24,30 @@ class SearchedEventDetailsViewController: UIViewController {
     @IBOutlet var regionLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
     
+    var map_info_to_be_passed = [String:String]()
+    var mapData = ["", "", ""]
+    
+    @IBOutlet var mapButton: UIButton!
+    
+
+    @IBAction func showOnMap_ButtonTapped(_ sender: UIButton) {
+        
+        
+        mapData[0] = eventDataPassed["longitude"]!
+        mapData[1] = eventDataPassed["latitude"]!
+        mapData[2] = eventDataPassed["title"]!
+        performSegue(withIdentifier: "map direction", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender:Any!){
+        if segue.identifier == "map direction"{
+           
+            let locationViewController: LocationViewController  = segue.destination as!  LocationViewController
+            locationViewController.websitelink = mapData
+        }
+        
+    }
+    
     // Declare a speechSynthesizer
     let speechSynthesizer = AVSpeechSynthesizer()
     

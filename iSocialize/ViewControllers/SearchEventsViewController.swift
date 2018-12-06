@@ -162,8 +162,9 @@ class SearchEventsViewController: UIViewController, UIPickerViewDelegate, UIPick
             }
             
             let eventsDictionary =  jsonDataDictionary["events"] as! [String:[[String: AnyObject]]]
-            
+           
             let resultsArray =  eventsDictionary["event"]
+        
             
             // Initialize Variables
             var id = "null"
